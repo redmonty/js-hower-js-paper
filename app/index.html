@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>To do list</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="css/libs.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="libs/paper/dist/paper-full.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js"> </script>
+  <script type="text/paperscript" canvas="myCanvas">
+  {/* //    for(var x = 0;x<1000;x+=100) {
+//     for(var y = 0;y<1000;y+=100){
+//        new Path.Circle(new Point(x, y), 30).fillColor = 'yellow';
+//      }
+//    }    */}
+
+ {/* function random() {
+    var n = Math.floor(Math.random(1,1000)*1000)
+    return n;
+  }  */}
+  var keyData = {
+    a: {
+      color: 'purple',
+      sound: new Howl({
+        src: ['A/clay.mp3']
+      })
+    },
+    s: {
+      color: 'red',
+      sound: new Howl({
+        src: ['A/bubbles.mp3']
+      })
+    },
+    d: {
+      color: 'yellow',
+      sound: new Howl({
+        src: ['A/confetti.mp3']
+      })
+    },
+    others: {
+      color: 'red',
+      sound: new Howl({
+        urls: ['https://soundcloud.com/deception-url/leak-bodiene-brazy']
+      })
+    }
+  };
+  {/* var sound = new Howl({
+  src: ['A/clay.mp3']
+  }); */}
+
+  var circles = [];
+  function onKeyDown(event) {
+    if(keyData[event.key]){
+      var maxPoint = new Point(view.size.width, view.size.height);
+      var randomPoint = Point.random();
+      var point = maxPoint * randomPoint;
+      var newCirlce = new Path.Circle(point, 100);
+
+      newCirlce.fillColor = keyData[event.key].color;
+      circles.push(newCirlce);
+      keyData[event.key].sound.play();
+    } else {
+      var maxPoint = new Point(view.size.width, view.size.height);
+      var randomPoint = Point.random();
+      var point = maxPoint * randomPoint;
+      var newCirlce = new Path.Circle(point, 100);
+      newCirlce.fillColor = keyData['others'].color;
+      circles.push(newCirlce);
+      keyData['others'].sound.play();
+
+    }
+  }
+  {/* var animateCircle = new Path.Circle(new Point(300,300),100);
+  animateCircle.fillColor = 'red'; */}
+  
+  function onFrame(event){
+    for(var i = 0;i<circles.length; i++){
+      circles[i].fillColor.hue += 1;
+      circles[i].scale(.91);
+
+    }
+    
+  }
+  
+  </script>
+</head>
+<body>
+  
+  <canvas id="myCanvas" resize></canvas>
+
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+<script src="https://unpkg.com/vue"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script src="js/libs.min.js"></script>  
+  <script src="js/main.js"></script>
+</body>
+</html>

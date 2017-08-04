@@ -1,0 +1,29 @@
+{
+  "name": "sass-bem",
+  "version": "2.6.5",
+  "main": "_bem.scss",
+  "description": "Amazing package for sass to write bem classes, with namespaces and more advanced features.",
+  "authors": [
+    "zgabievi <zura.gabievi@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/zgabievi/bem",
+  "_release": "2.6.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.6.5",
+    "commit": "7790be2a819d8deb101277631bb89905255dc61b"
+  },
+  "_source": "https://github.com/zgabievi/bem.git",
+  "_target": "^2.6.5",
+  "_originalSource": "bem",
+  "_direct": true
+}
